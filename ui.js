@@ -20,6 +20,7 @@ class UI {
     }
 
     paint(weather) {
+        
         this.location.textContent = weather.location.name;
         this.desc.textContent = weather.current.condition.text;
         this.temp.textContent = `${weather.current.temp_c} C`;
@@ -38,13 +39,13 @@ class UI {
         
             if(weather.current.wind_kph <= 15 && weather.current.gust_kph <= 15 && weather.current.precip_mm <= 0 ) {
                 document.getElementById('conditions').textContent = 'Its BEST time to play Tennis!';
-                document.getElementById('tennis').classList.add('excellent');
+                document.getElementById('tennis').className = 'excellent';
             } else if 
 
                 (weather.current.wind_kph <= 32 && weather.current.gust_kph <= 30) {
                     
                     document.getElementById('conditions').textContent = 'Its good time to play Tennis!';
-                    document.getElementById('tennis').classList.add('good');  
+                    document.getElementById('tennis').className = 'good';  
                      if(weather.current.precip_mm > 0.5 && weather.current.precip_mm < 2 ) {
                          document.getElementById('conditions').textContent = ' possible precipitation';
                      } else if(weather.current.precip_mm > 2) {
@@ -55,7 +56,7 @@ class UI {
 
                 (weather.current.wind_kph <= 40 && weather.current.gust_kph <= 40) {
                     document.getElementById('conditions').textContent = 'Wind may interfere with the game';
-                    document.getElementById('tennis').classList.add('moderate'); 
+                    document.getElementById('tennis').className = 'moderate'; 
                     if(weather.current.precip_mm > 0.5 && weather.current.precip_mm < 2 ) {
                         document.getElementById('conditions').textContent = ' possible precipitation';
                     } else if(weather.current.precip_mm > 2) {
@@ -66,11 +67,11 @@ class UI {
 
                 (weather.current.wind_kph <= 50 && weather.current.gust_kph <= 50  || weather.current.precip_mm > 2 ) {
                     document.getElementById('conditions').textContent = 'recommend not to play Tennis now';
-                    document.getElementById('tennis').classList.add('poor');   
+                    document.getElementById('tennis').className = 'poor';   
                 }else
                  {
                     document.getElementById('conditions').textContent = 'DEFENETLY DONT Tennis now!';
-                    document.getElementById('tennis').classList.add('extreme');   
+                    document.getElementById('tennis').className = 'extreme';   
                 }
 
                 
