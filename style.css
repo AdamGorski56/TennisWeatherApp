@@ -1,0 +1,15 @@
+.excellent{
+    background: green;
+}
+.good{
+    background: greenyellow;
+}
+.moderate{
+    background: yellow;
+}
+.poor{
+    background: rgb(250, 131, 95);
+}
+.extreme{
+    background: red;
+}
