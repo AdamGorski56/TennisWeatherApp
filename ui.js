@@ -49,7 +49,7 @@ class UI {
                      if(weather.current.precip_mm > 0.5 && weather.current.precip_mm < 2 ) {
                          document.getElementById('conditions').textContent = ' possible precipitation';
                      } else if(weather.current.precip_mm > 2) {
-                        document.getElementById('conditions').textContent = 'But rain can make it hard :(';
+                        document.getElementById('conditions').textContent = 'Its good time to play Tennis! But rain can make it hard :(';
                     } 
                     
                 }else if 
@@ -58,9 +58,9 @@ class UI {
                     document.getElementById('conditions').textContent = 'Wind may interfere with the game';
                     document.getElementById('tennis').className = 'moderate'; 
                     if(weather.current.precip_mm > 0.5 && weather.current.precip_mm < 2 ) {
-                        document.getElementById('conditions').textContent = ' possible precipitation';
+                        document.getElementById('conditions').textContent = 'Wind may interfere with the game, possible precipitation';
                     } else if(weather.current.precip_mm > 2) {
-                       document.getElementById('conditions').textContent = 'and rain can make it harder :(';
+                       document.getElementById('conditions').textContent = 'Wind may interfere with the game and rain can make it harder :(';
                    } 
                      
                 }else if 

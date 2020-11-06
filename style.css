@@ -1,3 +1,27 @@
+
+body{
+    background-image: url(./tennisback3.jpg);
+    background-size: cover;
+    
+   
+}
+.main_card{
+background-image: url(./wether.jpg);
+}
+.modal{
+    background-image: url(./world.jpg);
+}
+.modal-content{
+    background-image: url(./wether.jpg);
+}
+.modal-title{
+color: black;
+}
+
+.row{
+    padding-bottom: 50px;
+}
+
 .excellent{
     background: green;
 }
