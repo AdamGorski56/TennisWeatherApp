@@ -1,19 +1,22 @@
 
 body{
-    background-image: url(/src/imgs/tennisback3.jpg);
+    background-image: url(./src/imgs/tennisback3.jpg);
     background-size: cover;
     
    
 }
+
 .main_card{
-background-image: url(/src/imgs/wether.jpg);
+background-image: url(./src/imgs/wether.jpg);
 }
+
 .modal{
-    background-image: url(/src/imgs/world.jpg);
+    background-image: url(./src/imgs/world.jpg);
 }
 .modal-content{
-    background-image: url(/src/imgs/wether.jpg);
+    background-image: url(./src/imgs/wether.jpg);
 }
+
 .modal-title{
 color: black;
 }
