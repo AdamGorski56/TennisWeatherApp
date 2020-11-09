@@ -32,7 +32,9 @@ module.exports = merge(common, {
     new CleanWebpackPlugin()
   ],
   module: {
+    
     rules: [
+      
       {
         test: /\.scss$/,
         use: [

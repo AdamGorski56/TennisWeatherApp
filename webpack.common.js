@@ -1,6 +1,7 @@
 const path = require("path");
 var HtmlWebpackPlugin = require("html-webpack-plugin");
 
+
 module.exports = {
   
   entry: {
@@ -21,17 +22,20 @@ module.exports = {
         test: /\.html$/i,
         use: ["html-loader"]
       },
-
       {
-        test: /\.(png|jpe?g|gif|svg|ttf)$/i,
-        use: {
-          loader: "file-loader",
-          options: {
-            name: "[name].[hash].[ext]",
-            outputPath: "imgs"
+      test: /\.(png|jpe?g|gif|svg|ttf)$/i,
+      use: [
+        {
+          loader: 'file-loader',
+          options:{
+      
+            name:"[name].[contenthash].[ext]",
+            outputPath: "imgs&fonts"
           }
-        }
-      }
+        },
+      ],
+    },
+      
     ]
   }
 };
