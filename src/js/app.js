@@ -1,3 +1,13 @@
+import {Storage} from "./storage";
+import {Weather} from "./weather";
+import {UI} from "./ui";
+
+import "bootstrap";
+
+import $ from "jquery"
+
+
+
 const storage = new Storage();
 const weatherLocation = storage.getLocationData();
 const weather = new Weather(weatherLocation.city);
@@ -6,7 +16,7 @@ const ui = new UI();
 
 
 
-document.addEventListener('DOMContentLoaded', getWeather);
+ document.addEventListener('DOMContentLoaded', getWeather);
 
 //Change location event 
 document.getElementById('w-change-btn').addEventListener('click', () => {
