@@ -1,6 +1,6 @@
 
 export class UI {
-    constructor(){
+    constructor() {
         this.location = document.getElementById('w-location');
         this.desc = document.getElementById('w-desc');
         this.temp = document.getElementById('w-temp');
@@ -21,7 +21,7 @@ export class UI {
     }
 
     paint(weather) {
-        
+
         this.location.textContent = weather.location.name;
         this.desc.textContent = weather.current.condition.text;
         this.temp.textContent = `${weather.current.temp_c} C`;
@@ -37,44 +37,67 @@ export class UI {
         this.pressure.textContent = `Pressure : ${weather.current.pressure_mb} mb`;
 
         //paint tennis section
-        
-            if(weather.current.wind_kph <= 15 && weather.current.gust_kph <= 15 && weather.current.precip_mm <= 0 ) {
+
+        if (weather.current.wind_kph <= 15 && weather.current.gust_kph <= 15) {
+            if (weather.current.precip_mm <= 0.5 && weather.current.temp_c >= 10) {
                 document.getElementById('conditions').textContent = 'Its BEST time to play Tennis!';
                 document.getElementById('tennis').className = 'excellent';
-            } else if 
+            } else if (weather.current.precip_mm <= 0.5 && weather.current.temp_c <= 10) {
+                document.getElementById('conditions').textContent = `Its very good time to play Tennis! Just dress warmly. Its ${weather.current.temp_c} C!`;
+                document.getElementById('tennis').className = 'excellent';
+            } else if (weather.current.precip_mm > 0.5 && weather.current.precip_mm < 2 && weather.current.temp_c >= 10) {
+                document.getElementById('conditions').textContent = `Its very good time to play Tennis! But rain can make it hard`;
+                document.getElementById('tennis').className = 'good';
+            } else if (weather.current.precip_mm > 0.5 && weather.current.precip_mm < 2 && weather.current.temp_c <= 10) {
+                document.getElementById('conditions').textContent = `Its very good time to play Tennis! But rain can make it hard and You need to dress warmly. Its ${weather.current.temp_c} C!`;
+                document.getElementById('tennis').className = 'good';
+            }
+        } else if
+            (weather.current.wind_kph <= 32 && weather.current.gust_kph <= 30) {
 
-                (weather.current.wind_kph <= 32 && weather.current.gust_kph <= 30) {
-                    
-                    document.getElementById('conditions').textContent = 'Its good time to play Tennis!';
-                    document.getElementById('tennis').className = 'good';  
-                     if(weather.current.precip_mm > 0.5 && weather.current.precip_mm < 2 ) {
-                         document.getElementById('conditions').textContent = ' possible precipitation';
-                     } else if(weather.current.precip_mm > 2) {
-                        document.getElementById('conditions').textContent = 'Its good time to play Tennis! But rain can make it hard :(';
-                    } 
-                    
-                }else if 
 
-                (weather.current.wind_kph <= 40 && weather.current.gust_kph <= 40) {
-                    document.getElementById('conditions').textContent = 'Wind may interfere with the game';
-                    document.getElementById('tennis').className = 'moderate'; 
-                    if(weather.current.precip_mm > 0.5 && weather.current.precip_mm < 2 ) {
-                        document.getElementById('conditions').textContent = 'Wind may interfere with the game, possible precipitation';
-                    } else if(weather.current.precip_mm > 2) {
-                       document.getElementById('conditions').textContent = 'Wind may interfere with the game and rain can make it harder :(';
-                   } 
-                     
-                }else if 
+            if (weather.current.precip_mm <= 0.5 && weather.current.temp_c >= 10) {
+                document.getElementById('conditions').textContent = 'Its good time to play Tennis! The wind should not be too disturbing';
+                document.getElementById('tennis').className = 'good';
+            } else if (weather.current.precip_mm <= 0.5 && weather.current.temp_c <= 10) {
+                document.getElementById('conditions').textContent = `Its good time to play Tennis! The wind should not be too disturbing. Just dress warmly. Its ${weather.current.temp_c} C!`;
+                document.getElementById('tennis').className = 'good';
+            } else if (weather.current.precip_mm > 0.5 && weather.current.temp_c >= 10) {
+                document.getElementById('conditions').textContent = `Its good time to play Tennis! The wind should not be too disturbing. But rain can make it hard`;
+                document.getElementById('tennis').className = 'good';
+            } else if (weather.current.precip_mm > 0.5 && weather.current.temp_c <= 10) {
+                document.getElementById('conditions').textContent = `Its good time to play Tennis!The wind should not be too disturbing. But rain can make it hard and You need to dress warmly. Its ${weather.current.temp_c} C!`;
+                document.getElementById('tennis').className = 'good';
+            }
 
-                (weather.current.wind_kph <= 50 && weather.current.gust_kph <= 50  || weather.current.precip_mm > 2 ) {
-                    document.getElementById('conditions').textContent = 'recommend not to play Tennis now';
-                    document.getElementById('tennis').className = 'poor';   
-                }else
-                 {
-                    document.getElementById('conditions').textContent = 'DEFENETLY DONT Tennis now!';
-                    document.getElementById('tennis').className = 'extreme';   
-                }
+        } else if
+            (weather.current.wind_kph <= 40 && weather.current.gust_kph <= 40) {
 
-                
-      }
+
+            if (weather.current.precip_mm <= 0.5 && weather.current.temp_c >= 10) {
+                document.getElementById('conditions').textContent = 'The conditions are questionable. Wind can interfere with the game';
+                document.getElementById('tennis').className = 'moderate';
+            } else if (weather.current.precip_mm <= 0.5 && weather.current.temp_c <= 10) {
+                document.getElementById('conditions').textContent = `The conditions are questionable. Wind can interfere with the game. You have to dress warmly. Its ${weather.current.temp_c} C!`;
+                document.getElementById('tennis').className = 'moderate';
+            } else if (weather.current.precip_mm > 0.5 && weather.current.temp_c >= 10) {
+                document.getElementById('conditions').textContent = `The conditions are questionable. Wind can interfere with the game and rain can make it harder`;
+                document.getElementById('tennis').className = 'moderate';
+            } else if (weather.current.precip_mm > 0.5 && weather.current.temp_c <= 10) {
+                document.getElementById('conditions').textContent = `The conditions are questionable. Wind can interfere with the game and rain can make it harder plus You have to dress warmly. Its ${weather.current.temp_c} C!`;
+                document.getElementById('tennis').className = 'moderate';
+            }
+
+        } else if
+
+            (weather.current.wind_kph <= 50 && weather.current.gust_kph <= 50 || weather.current.precip_mm > 2) {
+            document.getElementById('conditions').textContent = 'recommend not to play Tennis now';
+            document.getElementById('tennis').className = 'poor';
+        } else if (weather.current.wind_kph > 50 && weather.current.gust_kph > 50 || weather.current.precip_mm > 3) {
+            document.getElementById('conditions').textContent = 'DEFENETLY DONT Tennis now!';
+            document.getElementById('tennis').className = 'extreme';
+        }
+
+
     }
+}
