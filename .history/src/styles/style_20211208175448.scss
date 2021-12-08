@@ -12,12 +12,6 @@ body {
   width: 100vw;
   height: 100%;
 }
-.list-group-item {
-  background-color: rgba(164, 209, 179, 0.9);
-  color: rgb(2, 2, 2);
-  letter-spacing: 2px;
-  font-size: large;
-}
 #tennis {
   border-radius: 10px;
 }
@@ -26,7 +20,7 @@ body {
   padding-right: 5px;
 }
 .main_card {
-  background-color: rgba(0, 0, 0, 0.5) !important;
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 .modal {
